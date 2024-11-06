@@ -21,15 +21,19 @@ struct ContentView: View {
             }
             
             MeshGradient(
-                width: 2,
-                height: 2,
+                width: 3,
+                height: 3,
                 points: [
-                    .init(x: 0, y: 0), .init(x: 1, y: 0),
-                    .init(x: 0, y: 1), .init(x: 1, y: 1),
+                    .init(0, 0), .init(0.5, 0), .init(1, 0),
+                    .init(0, 0.5), .init(0.5, 0.5), .init(1, 0.5),
+                    .init(0, 1), .init(0.5, 1), .init(1, 1)
                 ],
                 colors: [
                     viewModel.firstColor, viewModel.secondColor,
-                    viewModel.thirdColor, viewModel.fourthColor
+                    viewModel.thirdColor, viewModel.fourthColor,
+                    viewModel.fifthColor, viewModel.sixthColor,
+                    viewModel.seventhColor, viewModel.eighthColor,
+                    viewModel.ninethColor
                 ]
             )
             .cornerRadius(20)
@@ -55,14 +59,15 @@ struct ContentView: View {
                     .padding()
             }
             
-            if !viewModel.responseText.isEmpty {
-                ScrollView {
-                    Text("AI Response: \(viewModel.responseText)")
-                        .padding()
-                        .foregroundColor(.gray)
-                        .multilineTextAlignment(.leading)
-                }
-            }
+            //            if !viewModel.responseText.isEmpty {
+            //                ScrollView {
+            //                    Text("AI Response: \(viewModel.responseText)")
+            //                        .padding()
+            //                        .foregroundColor(.gray)
+            //                        .multilineTextAlignment(.leading)
+            //                }
+            //
+            //            }
         }
         .alert("Error", isPresented: .constant(viewModel.error != nil)) {
             Button("OK") {

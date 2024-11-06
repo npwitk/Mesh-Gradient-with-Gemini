@@ -15,6 +15,13 @@ class ColorViewModel: ObservableObject {
     @Published var secondColor: Color = .orange
     @Published var thirdColor: Color = .purple
     @Published var fourthColor: Color = .blue
+    
+    @Published var fifthColor: Color = .pink
+    @Published var sixthColor: Color = .yellow
+    @Published var seventhColor: Color = .cyan
+    @Published var eighthColor: Color = .indigo
+    @Published var ninethColor: Color = .brown
+    
     @Published var promptText: String = ""
     @Published var lastPrompt: String = ""
     @Published var responseText: String = ""
@@ -39,7 +46,7 @@ class ColorViewModel: ObservableObject {
             let range = NSRange(response.startIndex..<response.endIndex, in: response)
             let matches = regex.matches(in: response, options: [], range: range)
             
-            guard matches.count == 4 else {
+            guard matches.count == 9 else {
                 throw NSError(domain: "", code: -1, userInfo: [NSLocalizedDescriptionKey: "Invalid color format received"])
             }
             
@@ -60,6 +67,11 @@ class ColorViewModel: ObservableObject {
             secondColor = colors[1]
             thirdColor = colors[2]
             fourthColor = colors[3]
+            fifthColor = colors[4]
+            sixthColor = colors[5]
+            seventhColor = colors[6]
+            eighthColor = colors[7]
+            ninethColor = colors[8]
             
             promptText = ""
         } catch {
